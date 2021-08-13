@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<!--
+
+Made by ajay#0002 ; https://twitter.com/ajaysgonnahit
+- https://twitter.com/pw0te
+
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.stripe.com/v3/"></script>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="stars"></div>
+  <div class="container" style="height: 100vh;">
+    <div style="z-index: 1;">
+      <a href="/stripe/server.js">
+<!-- stripe payment- 
+
+- change the data key, icon, etc. 
+- make a redirect towards success and/or oos
+- fix up a few ui things
+- possibly upgrade to 3.0. 
+
+--> 
+        <form action="." method="post">
+          <button 
+            id = "btn-1"
+            class="purchasenowbtn"
+                type="submit" 
+                value="Pay with Card"
+                data-key="pk_live_fIyKWdA7hg0kjHWaZOshSzKE"
+
+                data-amount="000"
+                data-currency="usd"
+                data-name="PWOTE"
+                data-stripe-icon="https://media.discordapp.net/attachments/587745869881671680/696538124930646117/facebook_profile_image.png?width=677&height=677"
+                data-description="First to purchase, first to succeed."
+          >
+        <div id = "pb" class="name">purchase now.</div>
+        <div class="break"></div>
+        </button>
+
+        <script src="https://checkout.stripe.com/v3/checkout.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script>
+        $(document).ready(function() {
+            $(':submit').on('click', function(event) {
+                event.preventDefault();
+
+                var $button = $(this),
+                    $form = $button.parents('form');
+
+                var opts = $.extend({}, $button.data(), {
+                    token: function(result) {
+                        $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                    }
+                });
+
+                StripeCheckout.open(opts);
+            });
+        });
+        </script>
+</form>
+      </a>
+    </div>
+    <div class="break"></div>
+    <div class="row">
+        </div>
+      </a>
+    </div>
+  </div>
+
+<form id="payment-form">
+  <div id="card-element">
+    <!-- Elements will create input elements here -->
+  </div>
+
+  <!-- We'll put the error messages in this element -->
+  <div id="card-errors" role="alert"></div>
+
+  <button id="submit">Pay</button>
+</form>
+
+<script src="/purchase/restock-test-1/restock.js"></script>
+
+  <script>
+$('#btn-1').click(() => {
+  $('#pb').css('display', 'block')
+});
+  
+ <script src="/jquery.js"></script>
+
+  <script src="/tilt.js"></script>
+
+  <script src="/baffle.js"></script>
+  <script>
+    const text = baffle('.name');
+    text.set({
+      characters: '░▒░ ░██░> ████▓ >█> ░/█>█ ██░░ █<▒ ▓██░ ░/░▒',
+      speed: 110
+    });
+
+    text.start();
+    text.reveal(5000);
+  </script>
+
+
+</body>
+
+</html>
